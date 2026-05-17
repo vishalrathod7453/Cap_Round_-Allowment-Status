@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Advanced CSS for Animations, Frosted Glass UI, and Gradients
+# 2. Advanced CSS for Animations, Frosted Glass UI, and Gradients (Fixed unsafe_allow_html)
 st.markdown("""
     <style>
     /* Gradient Background covering the full viewport */
@@ -113,15 +113,15 @@ st.markdown("""
         100% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.4); border-color: #38bdf8; }
     }
     </style>
-""", unsafe_allowed=True)
+""", unsafe_allow_html=True)
 
-# 3. App Header Widget
+# 3. App Header Widget (Fixed unsafe_allow_html)
 st.markdown("""
     <div class="header-container">
         <h1>🎓 EduCompass AI</h1>
         <p>Intelligent College Prediction Engine powered by Machine Learning</p>
     </div>
-""", unsafe_allowed=True)
+""", unsafe_allow_html=True)
 
 # 4. Safely Load Pickled Model
 @st.cache_resource
@@ -140,7 +140,7 @@ model = load_college_model()
 
 # 5. Form Wrapper & Layout Inputs (Arranged in a grid)
 if model is not None:
-    st.markdown('<div class="form-card">', unsafe_allowed=True)
+    st.markdown('<div class="form-card">', unsafe_allow_html=True)
     st.subheader("📊 Enter Academic Profile Details")
     st.caption("Note: All 9 features must be filled to fulfill model signature requirements.")
     
@@ -162,16 +162,16 @@ if model is not None:
         feat6 = st.number_input("💼 Family Income Tier", min_value=0.0, max_value=10.0, value=2.0, step=1.0)
         feat9 = st.number_input("⚙️ Stream Choice Code", min_value=0.0, max_value=20.0, value=3.0, step=1.0)
         
-    st.markdown('</div>', unsafe_allowed=True)
+    st.markdown('</div>', unsafe_allow_html=True)
     
     # 6. Prediction Action Button
-    st.markdown("<br>", unsafe_allowed=True)
+    st.markdown("<br>", unsafe_allow_html=True)
     _, btn_col, _ = st.columns([1, 2, 1])
     
     with btn_col:
         predict_clicked = st.button("✨ Predict Best Match Campus", use_container_width=True)
         
-    # 7. Execution and Animation Rendering
+    # 7. Execution and Animation Rendering (Fixed unsafe_allow_html)
     if predict_clicked:
         # Group into a 1x9 matrix structure expected by Scikit-Learn
         features_array = np.array([[feat1, feat2, feat3, feat4, feat5, feat6, feat7, feat8, feat9]])
@@ -190,7 +190,7 @@ if model is not None:
                         <div class="pred-title">🌟 Top Recommended Institution 🌟</div>
                         <div class="pred-value">{predicted_college}</div>
                     </div>
-                """, unsafe_allowed=True)
+                """, unsafe_allow_html=True)
                 
             except Exception as e:
                 st.error("Prediction Error: Ensure feature values fall within valid scaling ranges.")
