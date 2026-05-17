@@ -158,7 +158,7 @@ if model is not None:
         feat8 = st.number_input("💰 Seat Type Preference", min_value=0.0, max_value=10.0, value=1.0, step=1.0)
         
     with col3:
-        feat3 = st.number_input("⚧ Gender (M, F)",
+        feat3 = st.number_input("⚧ Gender (0:M, 1:F)", min_value=0.0, max_value=1.0, value=0.0, step=1.0)
         feat6 = st.number_input("💼 Family Income Tier", min_value=0.0, max_value=10.0, value=2.0, step=1.0)
         feat9 = st.number_input("⚙️ Stream Choice Code", min_value=0.0, max_value=20.0, value=3.0, step=1.0)
         
