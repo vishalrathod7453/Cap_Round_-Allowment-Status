@@ -153,29 +153,24 @@ if model is not None:
         feat7 = st.number_input("🏫 10th Board (%)", min_value=0.0, max_value=100.0, value=90.0, step=0.1)
         
     with col2: 
-            [category = st.selectbox(
+    # Category dropdown option
+    category = st.selectbox(
     "📂 Select Category",
     ["OPEN", "OBC", "VJNT", "SC", "ST", "NT", "SBC"]
-)
-
-# Category dropdown option
-category = st.selectbox(
-    "📂 Select Category",
-    ["OPEN", "OBC", "VJNT", "SC", "ST", "NT", "SBC"]
-)
+    )
 
 # Convert category into numerical value
-category_mapping = {
-    "OPEN": 0,
-    "OBC": 1,
-    "VJNT": 2,
-    "SC": 3,
-    "ST": 4,
-    "NT": 5,
-    "SBC": 6
-}
+         category_mapping = {
+              "OPEN": 0,
+              "OBC": 1,
+              "VJNT": 2,
+              "SC": 3,
+              "ST": 4,
+              "NT": 5,
+             "SBC": 6
+        }
 
-feat2 = category_mapping[category]
+        feat2 = category_mapping[category]
 
 
         feat5 = st.number_input("📍 Region Code", min_value=0.0, max_value=10.0, value=0.0, step=1.0)
