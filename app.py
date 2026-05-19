@@ -158,7 +158,13 @@ if model is not None:
     ["OPEN", "OBC", "VJNT", "SC", "ST", "NT", "SBC"]
 )
 
-# Convert category into numerical code
+# Category dropdown option
+category = st.selectbox(
+    "📂 Select Category",
+    ["OPEN", "OBC", "VJNT", "SC", "ST", "NT", "SBC"]
+)
+
+# Convert category into numerical value
 category_mapping = {
     "OPEN": 0,
     "OBC": 1,
@@ -171,10 +177,7 @@ category_mapping = {
 
 feat2 = category_mapping[category]
 
-st.write("Selected Category Code:", feat2)
 
-
-        feat2 = st.number_input("🔢 Category Code (e.g. 1-5)", min_value=0.0, max_value=20.0, value=1.0, step=1.0)
         feat5 = st.number_input("📍 Region Code", min_value=0.0, max_value=10.0, value=0.0, step=1.0)
         feat8 = st.number_input("💰 Seat Type Preference", min_value=0.0, max_value=10.0, value=1.0, step=1.0)
         
